@@ -2,14 +2,14 @@
  *
  * Dùng: ChibiRunner.sync([{ code:"1", frameCount:10, frameFileName:i=>`${i}.png`, config:{...} }])
  *  - sync() nhận DANH SÁCH chibi đang bật: chibi mới thì thêm, chibi không còn trong danh sách thì xoá.
- *  - Ảnh chạy : chibi/<code>/<frameFileName(i)>           (i = 1..frameCount)
- *  - Ảnh ngã  : chibi/<code>/<fall.dir>/<fall.frameFileName(i)> (i = fall.start..fall.end)
+ *  - Ảnh chạy : <code>/<frameFileName(i)>           (i = 1..frameCount)
+ *  - Ảnh ngã  : <code>/<fall.dir>/<fall.frameFileName(i)> (i = fall.start..fall.end)
  *  - Nếu chưa có ảnh (lỗi tải) -> tự dùng mèo vẽ bằng SVG để vẫn chạy & ngã được.
  */
 (function () {
   "use strict";
 
-  var BASE_DIR = "chibi";
+  var BASE_DIR = ""; // ảnh nằm ở <gốc dự án>/<code>/..., ví dụ 1/1.png. Nếu để trong thư mục chibi/ thì đổi thành "chibi"
   var runners = new Map();
 
   var css = [
@@ -97,11 +97,11 @@
   }
 
   Runner.prototype.runSrc = function (i) {
-    return BASE_DIR + "/" + this.code + "/" + this.frameName(i);
+    return (BASE_DIR ? BASE_DIR + "/" : "") + this.code + "/" + this.frameName(i);
   };
   Runner.prototype.fallSrc = function (i) {
     var f = this.fall;
-    return BASE_DIR + "/" + this.code + "/" + f.dir + "/" + f.frameFileName(i);
+    return (BASE_DIR ? BASE_DIR + "/" : "") + this.code + "/" + f.dir + "/" + f.frameFileName(i);
   };
 
   Runner.prototype.preload = function () {
