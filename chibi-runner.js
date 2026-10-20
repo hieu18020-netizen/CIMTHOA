@@ -17,8 +17,7 @@
     "user-select:none;-webkit-user-drag:none;will-change:transform;touch-action:manipulation}",
     ".chibi-runner img,.chibi-runner svg{display:block;width:100%;height:auto;pointer-events:none;-webkit-user-drag:none}",
     ".chibi-runner .cr-inner{transform-origin:50% 100%;width:100%}",
-    ".chibi-runner .leg{transform-origin:50% 0}",
-    "@media (prefers-reduced-motion:reduce){.chibi-runner{display:none}}"
+    ".chibi-runner .leg{transform-origin:50% 0}"
   ].join("");
 
   function injectCss() {
