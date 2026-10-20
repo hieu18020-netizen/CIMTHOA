@@ -62,6 +62,7 @@
     this.baseFacing = cfg.baseFacing || "left";
     this.fall = cfg.fall || null;
     this.width = cfg.spriteWidth || 120;
+    if (window.innerWidth <= 768) this.width = Math.min(this.width, Math.round(window.innerWidth * 0.5));
     this.bottom = cfg.bottomOffset != null ? cfg.bottomOffset : 14;
 
     this.dir = Math.random() < 0.5 ? 1 : -1;
@@ -247,13 +248,9 @@
     raf = requestAnimationFrame(loop);
   }
 
-  // Điện thoại / màn hình cảm ứng nhỏ: không hiện chibi.
-  var mobileMq = window.matchMedia("(max-width:768px), (hover:none) and (pointer:coarse)");
+  // Hiện chibi trên mọi thiết bị (trước đây bị ẩn trên điện thoại).
   var lastEntries = [];
-  function isMobile() { return mobileMq.matches; }
-  function onMqChange() { window.ChibiRunner.sync(lastEntries); }
-  if (mobileMq.addEventListener) mobileMq.addEventListener("change", onMqChange);
-  else if (mobileMq.addListener) mobileMq.addListener(onMqChange);
+  function isMobile() { return false; }
 
   window.ChibiRunner = {
     sync: function (entries) {
