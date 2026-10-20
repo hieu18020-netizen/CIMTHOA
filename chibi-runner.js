@@ -248,11 +248,20 @@
     raf = requestAnimationFrame(loop);
   }
 
+  // Điện thoại / màn hình cảm ứng nhỏ: không hiện chibi.
+  var mobileMq = window.matchMedia("(max-width:768px), (hover:none) and (pointer:coarse)");
+  var lastEntries = [];
+  function isMobile() { return mobileMq.matches; }
+  function onMqChange() { window.ChibiRunner.sync(lastEntries); }
+  if (mobileMq.addEventListener) mobileMq.addEventListener("change", onMqChange);
+  else if (mobileMq.addListener) mobileMq.addListener(onMqChange);
+
   window.ChibiRunner = {
     sync: function (entries) {
       injectCss();
+      lastEntries = entries || [];
       var want = new Set();
-      (entries || []).forEach(function (e) {
+      (isMobile() ? [] : lastEntries).forEach(function (e) {
         var code = String(e.code);
         want.add(code);
         if (!runners.has(code)) runners.set(code, new Runner(e));
