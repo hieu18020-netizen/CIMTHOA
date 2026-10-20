@@ -61,7 +61,7 @@ h1 span{background:linear-gradient(90deg,var(--o1),var(--o2),var(--o1));backgrou
 .htxt{position:relative;margin-top:38px;background:#ffe0ec;border-radius:20px;padding:34px 20px 14px;border:2px dashed rgba(76,175,106,.6)}
 
 /* mạng xã hội + ảnh oval */
-.row{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;margin:34px 0 76px;align-items:center}
+.row{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;margin:34px 0 44px;align-items:center}
 .socials{display:flex;flex-direction:column;gap:16px}
 .social{display:flex;align-items:center;gap:14px;padding:9px 24px 9px 10px;border-radius:999px;text-decoration:none;color:#5a3a22;font-weight:800;font-style:italic;font-size:1.05rem;letter-spacing:.3px;background:var(--paw1) right 18px center/22px no-repeat,linear-gradient(180deg,#fff3e2,#ffdcb5);border:3px solid #fff;box-shadow:0 6px 16px rgba(255,122,24,.25),inset 0 -3px 6px rgba(255,150,60,.2),inset 0 2px 4px #fff;position:relative;transition:transform .3s,box-shadow .3s,color .3s;z-index:0}
 .social::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,var(--o1),var(--o2));opacity:0;transition:opacity .35s;z-index:-1}
@@ -87,8 +87,8 @@ h1 span{background:linear-gradient(90deg,var(--o1),var(--o2),var(--o1));backgrou
 .ow:hover .oval{transform:scale(1.08) rotate(-3deg)}
 
 /* 3 thẻ dưới */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:76px 30px}
-.hobby{grid-column:1;grid-row:1}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:60px 30px}
+.hobby{grid-column:1;grid-row:1;margin-top:-70px}
 .love{grid-column:1;grid-row:2}
 .edu{grid-column:2;grid-row:1/3;align-self:center}
 .tags{display:flex;flex-wrap:wrap;gap:10px}
@@ -141,6 +141,7 @@ footer{text-align:center;color:#ffe6cc;margin-top:50px;font-size:.9rem}
   .hero{grid-template-columns:1fr;text-align:center;justify-items:center}
   .row,.grid{grid-template-columns:1fr}
   .hobby,.edu,.love{grid-column:auto;grid-row:auto;align-self:auto}
+  .hobby{margin-top:0}
   main{padding:24px 14px 50px}
   .row{gap:22px;margin:24px 0 76px}
   .socials{width:100%}
