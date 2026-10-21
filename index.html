@@ -137,7 +137,14 @@ footer{text-align:center;color:#ffe6cc;margin-top:50px;font-size:.9rem}
 .edu:hover .bloom svg{animation:flsway 2.6s ease-in-out 1.4s infinite}
 @keyframes flsway{50%{transform:rotate(8deg) scale(1.06)}}
 
+/* 2 ảnh hai bên avatar: chỉ hiện trên điện thoại */
+.avrow{display:contents}
+.sideov{display:none}
 @media (max-width:720px){
+  .avrow{display:flex;align-items:center;justify-content:center;gap:10px}
+  .sideov{display:block;position:relative;flex:0 0 auto;width:clamp(64px,21vw,84px);aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:3px solid #8fd9a0;box-shadow:0 6px 16px rgba(255,122,20,.3);background:linear-gradient(135deg,#ffe0bd,var(--o2));animation:floaty 6s ease-in-out infinite}
+  .sideov.sr{animation-delay:-3s}
+  .sideov img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .hero{grid-template-columns:1fr;text-align:center;justify-items:center}
   .row,.grid{grid-template-columns:1fr}
   .hobby,.edu,.love{grid-column:auto;grid-row:auto;align-self:auto}
@@ -233,7 +240,11 @@ footer{text-align:center;color:#ffe6cc;margin-top:50px;font-size:.9rem}
   <div class="hero-wrap reveal">
   <header class="card hero">
       <span class="climb kL4" style="right:46px;--dl:0s"><i class="up"></i></span><span class="climb kR2" style="right:140px;--dl:.1s"><i class="up"></i></span><span class="climb kR3" style="right:234px;--dl:.2s"><i class="up"></i></span>
-    <div class="avatar"><span>ảnh</span><img src="1.png" alt="Ảnh đại diện" onerror="this.remove()"></div>
+    <div class="avrow">
+      <div class="sideov sl"><img src="2.png" alt="" onerror="this.remove()"></div>
+      <div class="avatar"><span>ảnh</span><img src="1.png" alt="Ảnh đại diện" onerror="this.remove()"></div>
+      <div class="sideov sr"><img src="3.png" alt="" onerror="this.remove()"></div>
+    </div>
     <div class="htxt">
       <span class="climb kR4 h" style="left:44px;--dl:.05s"><i class="up"></i></span><span class="climb kL1 h" style="right:64px;--dl:.15s"><i class="up"></i></span>
       <h1>Vũ Thị <span>Kim Thoa</span></h1>
